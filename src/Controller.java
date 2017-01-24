@@ -6,16 +6,16 @@ import java.util.*;
 
 public class Controller {
 
-	HashMap<Integer, Node> nodemap;
-	HashMap<Node, ArrayList<Edge>> edgemap;
+	HashMap<Integer, Node> nodeMap;
+	HashMap<Node, ArrayList<Edge>> edgeMap;
 	
 	int port;
 	DatagramSocket socket;
     InetAddress IPAddress;
 	
-	Controller(String hostname, int port){
-		this.nodemap = new HashMap<Integer, Node>();
-		this.edgemap = new HashMap<Node, ArrayList<Edge>>();
+	Controller(String hostName, int port){
+		this.nodeMap = new HashMap<Integer, Node>();
+		this.edgeMap = new HashMap<Node, ArrayList<Edge>>();
 		this.port = port;
 		try {
 			this.socket = new DatagramSocket(port);
@@ -23,9 +23,9 @@ public class Controller {
 			System.out.println("Cannot open port: " + port);
 		}
 	    try {
-			this.IPAddress = InetAddress.getByName(hostname);
+			this.IPAddress = InetAddress.getByName(hostName);
 		} catch (UnknownHostException e) {
-			System.out.println("Cannot find host: " + hostname);
+			System.out.println("Cannot find host: " + hostName);
 		}
 	}
 	
@@ -34,8 +34,8 @@ public class Controller {
 	public static void main(String[] args) {
 		//0:parse args
 		String hostname = "localhost";
-		int port = 3000;
-		String filename = "./src/"+"topo_3nodes.txt";
+		int port = 30000;
+		String filename = "topo_3nodes.txt";
 		
 		if(args.length == 3) {
 			hostname = args[0];
@@ -50,45 +50,55 @@ public class Controller {
 		
 		//2: wait all REGISTER_REQUEST
 		int count = controller.numSwitches();
-        byte[] receiveBuffer = new byte[1024];
-		DatagramPacket receivePacket = new DatagramPacket(receiveBuffer, receiveBuffer.length);
+        byte[] buffer = new byte[1024];
+		DatagramPacket recvPacket = new DatagramPacket(buffer, buffer.length);
+		
 
 		while(count > 0) {
             try {
             	//2.1: Read in a packet for REGISTER_REQUEST, update switch Node info
-            	receivePacket.setLength(1024); //reset buffer length
-            	Node n = controller.registerSwitch(receivePacket);
+            	recvPacket.setData(buffer); //reset buffer
+            	Node n = controller.recvRegisterRequest(recvPacket);
+            	
             	if(n == null) {
             		continue; //Not a valid switch register request
             	}
+            	
             	count--;
 	            
 	            //2.2 send REGISTER_RESPONSE with all its neighbors to the switch
-            	controller.respondToSwitch(n, receivePacket);
+            	controller.sendRegisterResponse(n, recvPacket);
             	
 			} catch (IOException e) {
 				
 				System.out.println("Receive Error");
 			}
 		}
+		
+		System.out.println("All Switches Registered");
 	}
 
 
 
 	private int numSwitches() {
-		return nodemap.size();
+		return nodeMap.size();
 	}
 	
-	private Node registerSwitch(DatagramPacket receivePacket) throws IOException {
+	private Node recvRegisterRequest(DatagramPacket recvPacket) throws IOException {
 		
-		this.socket.receive(receivePacket);
+		this.socket.receive(recvPacket);
+		
 		RegisterRequest req = null;
 		
-		try (ByteArrayInputStream bis = new ByteArrayInputStream(receivePacket.getData(), 0, receivePacket.getLength());
+		try (ByteArrayInputStream bis = new ByteArrayInputStream(recvPacket.getData(), 0, recvPacket.getLength());
 		     ObjectInput in = new ObjectInputStream(bis)) {
-			req = (RegisterRequest)in.readObject();
-			if(!req.type.equals("REGISTER_REQUEST")) {
+			
+			Object obj = in.readObject();
+			
+			if(!obj.getClass().getSimpleName().equals("RegisterRequest")) {
 				return null;
+			}else {
+				req = (RegisterRequest)obj;
 			}
 		} catch (ClassNotFoundException e) {
 			System.out.println("REGISTER_REQUEST Reading Error ");
@@ -96,20 +106,21 @@ public class Controller {
 		
 		//Read in switch info
 		int swID = req.id;
-		InetAddress swIP = receivePacket.getAddress();
-        int swPort = receivePacket.getPort();
+		InetAddress swIP = recvPacket.getAddress();
+        int swPort = recvPacket.getPort();
         
         //update switch Node info
-        Node n = this.nodemap.getOrDefault(swID, null);
+        Node n = this.nodeMap.getOrDefault(swID, null);
         if(n != null) {
         	n.update(swID, swIP.getHostName(), swPort, true);
         }
 		return n;
 	}
 	
-	private void respondToSwitch(Node n, DatagramPacket receivePacket) {
+	private void sendRegisterResponse(Node n, DatagramPacket receivePacket) {
 		RegisterResponse resp = new RegisterResponse();
-        ArrayList<Edge> edges = this.edgemap.get(n);
+        ArrayList<Edge> edges = this.edgeMap.get(n);
+       
         for(Edge edge : edges) {
         	resp.neighbors.add(edge.to);
         }
@@ -118,7 +129,7 @@ public class Controller {
             out.writeObject(resp);
             byte[] sendBuffer = bos.toByteArray();
             receivePacket.setData(sendBuffer);
-            this.socket.send(receivePacket); //ip and port are just received
+            this.socket.send(receivePacket); //ip and port are already in receivePacket
         } catch (IOException e) {
 			System.out.println("Sending to id:" + n.id + "failed");
 		}
@@ -136,9 +147,9 @@ public class Controller {
             int num = Integer.parseInt(line);  //id = 1 to num
     		for(int i = 1; i <= num; i++) {
     			Node n = new Node(i);
-    			nodemap.put(i,n);
+    			nodeMap.put(i,n);
     			ArrayList<Edge> neighbors = new ArrayList<>();
-    			edgemap.put(n, neighbors);
+    			edgeMap.put(n, neighbors);
     		}
             
             //read edges
@@ -152,12 +163,12 @@ public class Controller {
             	Node n1,n2;
         		Edge e1,e2;
         		ArrayList<Edge> l1,l2;
-        		n1 = nodemap.get(id1);
-        		n2 = nodemap.get(id2);
+        		n1 = nodeMap.get(id1);
+        		n2 = nodeMap.get(id2);
         		e1 = new Edge(n1,n2,bw,delay);
         		e2 = new Edge(n2,n1,bw,delay);
-        		l1 = edgemap.get(n1);
-        		l2 = edgemap.get(n2);
+        		l1 = edgeMap.get(n1);
+        		l2 = edgeMap.get(n2);
         		l1.add(e1);
         		l2.add(e2);
             }   
@@ -177,7 +188,7 @@ public class Controller {
 	
 	public void printGraph() {
 		//For Test and LOG
-		for(HashMap.Entry<Node, ArrayList<Edge>> ent : this.edgemap.entrySet()) {
+		for(HashMap.Entry<Node, ArrayList<Edge>> ent : this.edgeMap.entrySet()) {
 			Node n = ent.getKey();
 			System.out.println(n.id + "," + n.hostName + "," + n.port +":");
 			ArrayList<Edge> l = ent.getValue();

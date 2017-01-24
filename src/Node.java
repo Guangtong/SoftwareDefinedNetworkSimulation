@@ -1,5 +1,5 @@
 
-public class Node {
+public class Node implements java.io.Serializable {
 	int id;
 	int noResponseTime;
 	boolean alive;
