@@ -1,4 +1,5 @@
 
+@SuppressWarnings("serial")
 public class Node implements java.io.Serializable {
 	int id;
 	int noResponseTime;
@@ -9,7 +10,7 @@ public class Node implements java.io.Serializable {
 		this.id = id;
 		this.noResponseTime = 0;
 		this.alive = false;
-		this.hostName = "localhost";
+		this.hostName = "undefined";
 		this.port = -1;
 	}
 	
@@ -18,6 +19,7 @@ public class Node implements java.io.Serializable {
 		this.hostName = hostname;
 		this.port = port;
 		this.alive = alive;
+		this.noResponseTime = 0;
 	}
 	public int getId() {
 		return id;

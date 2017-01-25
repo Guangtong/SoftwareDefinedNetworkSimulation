@@ -20,12 +20,12 @@ public class Controller {
 		try {
 			this.socket = new DatagramSocket(port);
 		} catch (SocketException e) {
-			System.out.println("Cannot open port: " + port);
+			System.err.println("Cannot open port: " + port);
 		}
 	    try {
 			this.IPAddress = InetAddress.getByName(hostName);
 		} catch (UnknownHostException e) {
-			System.out.println("Cannot find host: " + hostName);
+			System.err.println("Cannot find host: " + hostName);
 		}
 	}
 	
@@ -52,27 +52,36 @@ public class Controller {
 		int count = controller.numSwitches();
         byte[] buffer = new byte[1024];
 		DatagramPacket recvPacket = new DatagramPacket(buffer, buffer.length);
-		
-
 		while(count > 0) {
-            try {
-            	//2.1: Read in a packet for REGISTER_REQUEST, update switch Node info
-            	recvPacket.setData(buffer); //reset buffer
-            	Node n = controller.recvRegisterRequest(recvPacket);
-            	
-            	if(n == null) {
-            		continue; //Not a valid switch register request
-            	}
-            	
-            	count--;
-	            
-	            //2.2 send REGISTER_RESPONSE with all its neighbors to the switch
-            	controller.sendRegisterResponse(n, recvPacket);
-            	
-			} catch (IOException e) {
-				
-				System.out.println("Receive Error");
+            //2.1: Read in a packet for REGISTER_REQUEST, update switch Node info
+			recvPacket.setLength(buffer.length); //reset buffer
+			MsgRegisterRequest msg = MsgRegisterRequest.recv(controller, recvPacket);
+			
+			if(msg == null) {
+				continue;//Not a valid switch register request
 			}
+			
+			//For test
+			System.out.println(recvPacket.getPort());
+			
+			//Read in switch info
+			int swID = msg.id;
+			InetAddress swIP = recvPacket.getAddress();
+			int swPort = recvPacket.getPort();
+			
+			//update switch Node info
+			Node n = controller.nodeMap.getOrDefault(swID, null);
+			if(n != null) {
+				n.update(swID, swIP.getHostName(), swPort, true);
+			} else {
+				continue;   //when id is not in initial graph, do not respond to this switch
+			}
+			
+			count--;
+			
+			//2.2 send REGISTER_RESPONSE with all its neighbors to the switch
+			MsgRegisterResponse.send(controller, n);
+			//controller.sendRegisterResponse(n, recvPacket);
 		}
 		
 		System.out.println("All Switches Registered");
@@ -84,56 +93,8 @@ public class Controller {
 		return nodeMap.size();
 	}
 	
-	private Node recvRegisterRequest(DatagramPacket recvPacket) throws IOException {
-		
-		this.socket.receive(recvPacket);
-		
-		RegisterRequest req = null;
-		
-		try (ByteArrayInputStream bis = new ByteArrayInputStream(recvPacket.getData(), 0, recvPacket.getLength());
-		     ObjectInput in = new ObjectInputStream(bis)) {
-			
-			Object obj = in.readObject();
-			
-			if(!obj.getClass().getSimpleName().equals("RegisterRequest")) {
-				return null;
-			}else {
-				req = (RegisterRequest)obj;
-			}
-		} catch (ClassNotFoundException e) {
-			System.out.println("REGISTER_REQUEST Reading Error ");
-		}
-		
-		//Read in switch info
-		int swID = req.id;
-		InetAddress swIP = recvPacket.getAddress();
-        int swPort = recvPacket.getPort();
-        
-        //update switch Node info
-        Node n = this.nodeMap.getOrDefault(swID, null);
-        if(n != null) {
-        	n.update(swID, swIP.getHostName(), swPort, true);
-        }
-		return n;
-	}
 	
-	private void sendRegisterResponse(Node n, DatagramPacket receivePacket) {
-		RegisterResponse resp = new RegisterResponse();
-        ArrayList<Edge> edges = this.edgeMap.get(n);
-       
-        for(Edge edge : edges) {
-        	resp.neighbors.add(edge.to);
-        }
-        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
-             ObjectOutput out = new ObjectOutputStream(bos)) {
-            out.writeObject(resp);
-            byte[] sendBuffer = bos.toByteArray();
-            receivePacket.setData(sendBuffer);
-            this.socket.send(receivePacket); //ip and port are already in receivePacket
-        } catch (IOException e) {
-			System.out.println("Sending to id:" + n.id + "failed");
-		}
-	}
+
 
 	private void readGraph(String fileName) {
 		
@@ -146,7 +107,7 @@ public class Controller {
             line = bufferedReader.readLine();
             int num = Integer.parseInt(line);  //id = 1 to num
     		for(int i = 1; i <= num; i++) {
-    			Node n = new Node(i);
+    			Node n = new Node(i);   //NOTE: Node is not alive when created, unless they registered and keep the heartbeat
     			nodeMap.put(i,n);
     			ArrayList<Edge> neighbors = new ArrayList<>();
     			edgeMap.put(n, neighbors);
@@ -180,7 +141,7 @@ public class Controller {
             
         }
         catch(IOException ex) {
-            System.out.println("Error reading file '" + fileName + "'");      
+            System.err.println("Error reading file '" + fileName + "'");      
         }
 		
            				

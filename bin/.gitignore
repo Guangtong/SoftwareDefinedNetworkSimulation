@@ -4,4 +4,11 @@
 /RegisterRequest.class
 /RegisterResponse.class
 /Switch.class
-/topo_3nodes.txt
+/SwitchPeriodicTask.class
+/ControllerPeriodicTask.class
+/SwitchKeepAliveThread.class
+/SwitchRouteUpdateThread.class
+/MsgRegisterRequest.class
+/MsgRegisterResponse.class
+/MsgKeepAlive.class
+/MsgTopologyUpdate.class
