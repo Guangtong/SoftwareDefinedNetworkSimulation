@@ -3,11 +3,14 @@
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.util.concurrent.Semaphore;
 
 public class Controller {
 
 	HashMap<Integer, Node> nodeMap;
 	HashMap<Node, ArrayList<Edge>> edgeMap;
+	HashSet<Node> regSet;
+	Semaphore allRegisteredSignal = new Semaphore(0);
 	
 	int port;
 	DatagramSocket socket;
@@ -16,6 +19,7 @@ public class Controller {
 	Controller(String hostName, int port){
 		this.nodeMap = new HashMap<Integer, Node>();
 		this.edgeMap = new HashMap<Node, ArrayList<Edge>>();
+		this.regSet = new HashSet<Node>();
 		this.port = port;
 		try {
 			this.socket = new DatagramSocket(port);
@@ -48,53 +52,26 @@ public class Controller {
 		controller.readGraph(filename);	
 		controller.printGraph();
 		
-		//2: wait all REGISTER_REQUEST
-		int count = controller.numSwitches();
-        byte[] buffer = new byte[1024];
-		DatagramPacket recvPacket = new DatagramPacket(buffer, buffer.length);
-		while(count > 0) {
-            //2.1: Read in a packet for REGISTER_REQUEST, update switch Node info
-			recvPacket.setLength(buffer.length); //reset buffer
-			MsgRegisterRequest msg = MsgRegisterRequest.recv(controller, recvPacket);
-			
-			if(msg == null) {
-				continue;//Not a valid switch register request
-			}
-			
-			//For test
-			System.out.println(recvPacket.getPort());
-			
-			//Read in switch info
-			int swID = msg.id;
-			InetAddress swIP = recvPacket.getAddress();
-			int swPort = recvPacket.getPort();
-			
-			//update switch Node info
-			Node n = controller.nodeMap.getOrDefault(swID, null);
-			if(n != null) {
-				n.update(swID, swIP.getHostName(), swPort, true);
-			} else {
-				continue;   //when id is not in initial graph, do not respond to this switch
-			}
-			
-			count--;
-			
-			//2.2 send REGISTER_RESPONSE with all its neighbors to the switch
-			MsgRegisterResponse.send(controller, n);
-			//controller.sendRegisterResponse(n, recvPacket);
-		}
+		//2: Begin receive after graph read
+		(new ControllerMsgRecvThread(controller)).start();
 		
-		System.out.println("All Switches Registered");
+		//3: wait all REGISTER_REQUEST
+		while(true) {
+			try {
+				controller.allRegisteredSignal.acquire();   //wait all switches to be registered
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			//For LOG
+			System.out.println("All Switches Registered");
+			
+			
+			//4: compute and send RouteUpdate 
+			
+			
+		}
 	}
-
-
-
-	private int numSwitches() {
-		return nodeMap.size();
-	}
-	
-	
-
 
 	private void readGraph(String fileName) {
 		
@@ -148,7 +125,7 @@ public class Controller {
 	}
 	
 	public void printGraph() {
-		//For Test and LOG
+		//For LOG
 		for(HashMap.Entry<Node, ArrayList<Edge>> ent : this.edgeMap.entrySet()) {
 			Node n = ent.getKey();
 			System.out.println(n.id + "," + n.hostName + "," + n.port +":");

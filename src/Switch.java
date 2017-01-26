@@ -64,28 +64,20 @@ public class Switch {
 
 		//1: create switch socket
 		Switch sw = new Switch(swID, hostName, controllerPort, failedIds);
-		
 
-//		
-		
 		//2: send REGISTER_REQUEST
 		MsgRegisterRequest.send(sw);
 		
-		//4: recv REGISTER_RESPONSE
-		byte[] buffer = new byte[10240];
-		DatagramPacket recvPacket = new DatagramPacket(buffer, buffer.length);
-		MsgRegisterResponse msg = MsgRegisterResponse.recv(sw, recvPacket);
-		//Read in neighbors
-		for(Node n : msg.neighbors) {
-			n.noResponseTime = 0;
-			sw.neighborMap.put(n.id, n);
-		}
-		sw.printNeighbors();
-	
+		
 		//3: create receive threads to receive  "KEEP_ALIVE" and ROUTE_UPDATE
 		//NOTE: only after registered may it possibly receive "KEEP_ALIVE" or ROUTE_UPDATE 
-		(new SwitchKeepAliveThread(sw)).start();
+		(new SwitchMsgRecvThread(sw)).start();
 //		(new SwitchRouteUpdateThread(sw)).start();
+		
+		
+		//4: recv REGISTER_RESPONSE
+		
+		
 		
 		//5. send KEEP_ALIVE to alive neighbors
 
@@ -104,8 +96,8 @@ public class Switch {
 	
 
 
-	private void printNeighbors() {
-		//For Test and LOG
+	public void printNeighbors() {
+		//For LOG
 		for(Node n : this.neighborMap.values()) {
 			System.out.println(n.id + "," + n.hostName + "," + n.port +":");
 		}	

@@ -37,30 +37,5 @@ public class MsgRegisterResponse implements java.io.Serializable{
 		}
 	}
 	
-	
-	public static MsgRegisterResponse recv(Switch sw, DatagramPacket recvPacket) {
-		while(true) {
-			try {
-				sw.socket.receive(recvPacket);
-			} catch (IOException e) {
-				System.err.println("REGISTER_RESPONSE Reading Error 001");
-			}
-			try (ByteArrayInputStream bis = new ByteArrayInputStream(recvPacket.getData(), 0, recvPacket.getLength());
-			     ObjectInput in = new ObjectInputStream(bis)) {
-				Object obj = in.readObject();
-				if(!obj.getClass().getSimpleName().equals("MsgRegisterResponse")) {
-					continue;
-				}else {
-					return (MsgRegisterResponse)obj;
-				}
-			} catch (ClassNotFoundException e) {
-				System.err.println("REGISTER_RESPONSE Reading Error 002");
-			} catch (IOException e) {
-				System.err.println("REGISTER_RESPONSE Reading Error 003");
-			}
-		}
 
-	}
-
-	
 }

@@ -7,24 +7,31 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class MsgTopologyUpdate implements java.io.Serializable {
+	int id;
 	boolean needUpdate = false;
-	public ArrayList<Node> neighbors;
-	public MsgTopologyUpdate(boolean needUpdate, ArrayList<Node> neighbors) {
+	public ArrayList<Integer> neighborIds;
+	public MsgTopologyUpdate(int id, boolean needUpdate, ArrayList<Integer> neighborIds) {
+		this.id = id;
 		this.needUpdate = needUpdate;
 		if(needUpdate) {
-			this.neighbors = neighbors;
+			this.neighborIds = neighborIds;
 		}else {
-			this.neighbors = null;
+			this.neighborIds = null;
 		}
 		
 	}
 	//para: the switch which is sending the msg, whether the msg needUpdate
 	public static void send(Switch sw, boolean needUpdate) {
-		ArrayList<Node> neighbors = null;
+		ArrayList<Integer> neighborsIds = null;
 		if(needUpdate) {
-			neighbors = new ArrayList<Node>(sw.neighborMap.values());
+			neighborsIds = new ArrayList<Integer>(); //only alive neighbors (means active links) are sent
+			for(Node n : sw.neighborMap.values()){
+				if(n.alive) {
+					neighborsIds.add(n.id);
+				}
+			}
 		}
-		MsgTopologyUpdate msg = new MsgTopologyUpdate(needUpdate, neighbors);
+		MsgTopologyUpdate msg = new MsgTopologyUpdate(sw.id, needUpdate, neighborsIds);
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
              ObjectOutput out = new ObjectOutputStream(bos)) {
             out.writeObject(msg);

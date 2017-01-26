@@ -12,3 +12,6 @@
 /MsgRegisterResponse.class
 /MsgKeepAlive.class
 /MsgTopologyUpdate.class
+/SwitchMsgRecvThread.class
+/ControllerMsgRecvThread.class
+/ControllerData.class
