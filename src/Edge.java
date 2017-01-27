@@ -16,6 +16,6 @@ public class Edge {
 		this.to= to;
 		this.bw = bw;
 		this.delay = delay;
-		this.active = true;
+		this.active = false; //needs to be set active when the 'from' node and 'to' node become active
 	}
 }

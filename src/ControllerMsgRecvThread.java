@@ -46,6 +46,11 @@ public class ControllerMsgRecvThread extends Thread {
 				ArrayList<Edge> edges = controller.edgeMap.get(controller.nodeMap.get(msg1.id));
 				boolean needUpdate = false;
 				for(Edge edge : edges){
+					//For TEST:
+					System.out.println("Edge Info: " + edge.from.id + " to " + edge.to.id + ", activity: " + edge.active + " Feedback: " + neighborIdSet.contains(edge.to.id));
+					
+					
+					
 					if(edge.active && !neighborIdSet.contains(edge.to.id)) {
 						//edge no long active
 						edge.active = false;
@@ -56,7 +61,7 @@ public class ControllerMsgRecvThread extends Thread {
 						needUpdate = true;
 					}
 				}
-				if(needUpdate) {
+				if(needUpdate) {  //really needs update after check
 					//for LOG
 					System.out.println("Needs Route Update");
 					//TODO
@@ -88,8 +93,23 @@ public class ControllerMsgRecvThread extends Thread {
 					//when id is repeatedly registered, with another port for example, do not respond to this switch
 				}
 				
-				//3.Update switch Node info
+				//3.Update switch Node info, and the edges related
 				n.update(swID, swIP.getHostName(), swPort, true);
+				//set edges from n to active
+				for(Edge edge : controller.edgeMap.get(n)) {
+					if(!edge.to.alive) 
+						continue;
+					
+					edge.active = true;
+					//set edges to n to active
+					for(Edge edge2 : controller.edgeMap.get(edge.to)) {
+						if(edge2.to == n) {
+							edge2.active = true;
+							//For TEST:
+							System.out.println("Edge " + edge2.from.id + " to " + edge2.to.id + " is set active");
+						}
+					}
+				}
 				
 				//4. send REGISTER_RESPONSE with all the neighbors of the switch
 				MsgRegisterResponse.send(controller, n);

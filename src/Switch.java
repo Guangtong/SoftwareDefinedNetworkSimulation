@@ -69,24 +69,11 @@ public class Switch {
 		MsgRegisterRequest.send(sw);
 		
 		
-		//3: create receive threads to receive  "KEEP_ALIVE" and ROUTE_UPDATE
-		//NOTE: only after registered may it possibly receive "KEEP_ALIVE" or ROUTE_UPDATE 
+		//3: create receive threads to receive REGISTER_UPDATE, KEEP_ALIVE and ROUTE_UPDATE
+		//NOTE: only after registered may it possibly receive KEEP_ALIVE or ROUTE_UPDATE 
 		(new SwitchMsgRecvThread(sw)).start();
-//		(new SwitchRouteUpdateThread(sw)).start();
-		
-		
-		//4: recv REGISTER_RESPONSE
-		
-		
-		
-		//5. send KEEP_ALIVE to alive neighbors
 
-		for(Node n : sw.neighborMap.values()) {
-			if(n.alive && !failedIds.contains(n)) {
-				MsgKeepAlive.send(sw, n);
-			}
-		}
-		//6. start the timer task
+		//4. start the timer task
 		
 		
 	}

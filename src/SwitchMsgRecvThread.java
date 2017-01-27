@@ -36,6 +36,18 @@ public class SwitchMsgRecvThread extends Thread {
 					sw.neighborMap.put(n.id, n);
 				}
 				sw.printNeighbors();
+				
+				//Immediately send KEEP_ALIVE to alive neighbors
+				for(Node n : sw.neighborMap.values()) {
+					if(n.alive && !sw.failedIds.contains(n)) {
+						//For LOG:
+						System.out.println("Switch ID: " + sw.id + "Sending KEEP_ALIVE to" + n.id);
+						MsgKeepAlive.send(sw, n);
+					}
+				}
+				
+				
+				
 				break;
 			
 			case "MsgKeepAlive":
@@ -46,6 +58,10 @@ public class SwitchMsgRecvThread extends Thread {
 
 				//if node was not alive before, update routing
 				if(!n.alive) {
+					//For LOG
+					//Found new alive node
+					System.out.println("Found New Alive Switch ID:" + msg2.id);
+					
 					n.update(msg2.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
 					MsgTopologyUpdate.send(sw, true);
 				}
