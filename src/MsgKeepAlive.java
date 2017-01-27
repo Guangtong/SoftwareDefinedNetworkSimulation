@@ -25,11 +25,13 @@ public class MsgKeepAlive implements java.io.Serializable {
             byte[] buf = bos.toByteArray();
             DatagramPacket sendPacket = new DatagramPacket(buf, buf.length, InetAddress.getByName(target.hostName), target.port);
             sw.socket.send(sendPacket); 
+            //For LOG:
+            System.out.println(sw.id + " sending KEEP_ALIVE to " + target.id);
+            
         } catch (IOException e) {
-        	System.err.println(sw.id + " sending KeepAlive to " + target.id + " failed");
+        	System.err.println(sw.id + " sending KEEP_ALIVE to " + target.id + " failed");
 		}
-		
-		
+
 	}
 
 }

@@ -74,8 +74,12 @@ public class Switch {
 		(new SwitchMsgRecvThread(sw)).start();
 
 		//4. start the timer task
+		Timer timer = new Timer("Switch Repeated Task");
+		long K = 10;      //Send KEEP_ALIVE every K sec, 
+		int M = 3;  	  //mark a neighbor as dead after no response for K*M sec 
+        timer.schedule(new SwitchPeriodicTask(sw, M), K * 1000 , K * 1000);  //public void schedule(TimerTask task, long delayms, long periodms)
 		
-		
+        //main exits
 	}
 
 
@@ -85,8 +89,11 @@ public class Switch {
 
 	public void printNeighbors() {
 		//For LOG
+		System.out.println("===== Neighbors of SW ID: " + id + " ====");
+		System.out.println("ID\tHostName\tport\tAlive");
+		
 		for(Node n : this.neighborMap.values()) {
-			System.out.println(n.id + "," + n.hostName + "," + n.port +":");
+			System.out.println(n.id + "\t" + n.hostName + "\t" + n.port +"\t" + n.alive);
 		}	
 		
 	}

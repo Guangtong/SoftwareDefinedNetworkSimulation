@@ -14,42 +14,29 @@ public class Node implements java.io.Serializable {
 		this.port = -1;
 	}
 	
-	public void update(int id, String hostname, int port, boolean alive){
+	public synchronized void update(int id, String hostname, int port, boolean alive){
 		this.id = id;
 		this.hostName = hostname;
 		this.port = port;
 		this.alive = alive;
 		this.noResponseTime = 0;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
+	
+	public synchronized void setId(int id) {
 		this.id = id;
 	}
-	public int getNoResponseTime() {
-		return noResponseTime;
-	}
-	public void setNoResponseTime(int noResponseTime) {
+
+	public synchronized void setNoResponseTime(int noResponseTime) {
 		this.noResponseTime = noResponseTime;
 	}
-	public boolean isAlive() {
-		return alive;
+
+	public synchronized void incNoResponseTime() {
+		this.noResponseTime++;
 	}
-	public void setAlive(boolean alive) {
+	
+	public synchronized void setAlive(boolean alive) {
 		this.alive = alive;
 	}
-	public int getPort() {
-		return port;
-	}
-	public void setPort(int port) {
-		this.port = port;
-	}
-	public String getHostName() {
-		return hostName;
-	}
-	public void setHostName(String hostName) {
-		this.hostName = hostName;
-	}
+
 	
 }

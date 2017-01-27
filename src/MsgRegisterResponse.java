@@ -31,6 +31,8 @@ public class MsgRegisterResponse implements java.io.Serializable{
             byte[] buf = bos.toByteArray();
             DatagramPacket p = new DatagramPacket(buf, buf.length, InetAddress.getByName(target.hostName), target.port);
             controller.socket.send(p); //ip and port are already in receivePacket
+            //For LOG
+            System.out.println("Controller sending REGISTER_RESPONSE to id:" + target.id);
             
         } catch (IOException e) {
 			System.err.println("Controller sending REGISTER_RESPONSE to id:" + target.id + "failed");

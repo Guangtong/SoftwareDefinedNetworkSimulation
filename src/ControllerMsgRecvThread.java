@@ -35,6 +35,9 @@ public class ControllerMsgRecvThread extends Thread {
 			switch(msgType) {
 			case "MsgTopologyUpdate":
 				MsgTopologyUpdate msg1 = (MsgTopologyUpdate)obj;
+				//For LOG
+				System.out.println("Controller Received TOPOLOGY_UPDATE from Switch ID: " + msg1.id + " Update Request: " + msg1.needUpdate);
+				
 				if(!msg1.needUpdate) 
 					break;
 				HashSet<Integer> neighborIdSet = new HashSet<Integer>(msg1.neighborIds);
@@ -47,7 +50,7 @@ public class ControllerMsgRecvThread extends Thread {
 				boolean needUpdate = false;
 				for(Edge edge : edges){
 					//For TEST:
-					System.out.println("Edge Info: " + edge.from.id + " to " + edge.to.id + ", activity: " + edge.active + " Feedback: " + neighborIdSet.contains(edge.to.id));
+					System.out.println("Edge Info: " + edge.from.id + " to " + edge.to.id + ", Record: " + edge.active + " Feedback: " + neighborIdSet.contains(edge.to.id));
 					
 					
 					
@@ -63,12 +66,12 @@ public class ControllerMsgRecvThread extends Thread {
 				}
 				if(needUpdate) {  //really needs update after check
 					//for LOG
-					System.out.println("Needs Route Update");
+					System.out.println("Computing Route Update");
 					//TODO
 					//compute route
 					//send MsgRouteUpdate
 				}else {
-					System.out.println("Needs Not Route Update");
+					System.out.println("Actually No Need of Route Update");
 				}
 				
 				
@@ -83,15 +86,22 @@ public class ControllerMsgRecvThread extends Thread {
 				int swPort = recvPacket.getPort();
 				
 				//For LOG
-				System.out.println("Received REGISTER Request From Id: " + swID);
+				System.out.println("Received REGISTER_REQUEST From ID: " + swID);
 				
 				//2. Check the switch availability
 				Node n = controller.nodeMap.getOrDefault(swID, null);
-				if(n == null || controller.regSet.contains(n)) {
+				if(n == null ) {
 					continue;   
 					//when id is not in initial graph, do not respond to this switch
-					//when id is repeatedly registered, with another port for example, do not respond to this switch
+					
 				}
+				
+				//we allow reregister now: sw may be shortly down and restart, no sw or controller know the restart, but the port may be changed			
+//				if(controller.regSet.contains(n)){
+//					// when id is repeatedly registered, with another port for example, do not respond to this switch
+//					
+//					
+//				}
 				
 				//3.Update switch Node info, and the edges related
 				n.update(swID, swIP.getHostName(), swPort, true);
@@ -106,7 +116,7 @@ public class ControllerMsgRecvThread extends Thread {
 						if(edge2.to == n) {
 							edge2.active = true;
 							//For TEST:
-							System.out.println("Edge " + edge2.from.id + " to " + edge2.to.id + " is set active");
+							System.out.println("Edges between " + edge2.from.id + " and " + edge2.to.id + " are set active");
 						}
 					}
 				}

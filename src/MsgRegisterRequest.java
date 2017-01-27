@@ -22,8 +22,11 @@ public class MsgRegisterRequest implements java.io.Serializable {
             byte[] sendBuffer = bos.toByteArray();
             DatagramPacket sendPacket = new DatagramPacket(sendBuffer, sendBuffer.length, sw.controllerIPAddress, sw.controllerPort);
             
-            //System.out.println(sendPacket.getSocketAddress());
             sw.socket.send(sendPacket); 
+            
+            //For LOG
+            System.out.println(sw.id + " sending REGISTER_REQUEST to controller at "+ sendPacket.getSocketAddress());
+            
         } catch (IOException e) {
 			System.err.println(sw.id + " sending REGISTER_REQUEST to controller failed");
 		}

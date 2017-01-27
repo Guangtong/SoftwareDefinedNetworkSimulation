@@ -38,6 +38,10 @@ public class MsgTopologyUpdate implements java.io.Serializable {
             byte[] buf = bos.toByteArray();
             DatagramPacket p = new DatagramPacket(buf, buf.length, sw.controllerIPAddress, sw.controllerPort);
             sw.socket.send(p); //ip and port are already in receivePacket
+            
+            //For LOG
+            System.out.println(sw.id + " Sending TOPOLOGY_UPDATE to controller; Requesting Update: " + needUpdate);
+            
         } catch (IOException e) {
 			System.err.println(sw.id + " Sending TOPOLOGY_UPDATE to controller failed");
 		}

@@ -35,40 +35,44 @@ public class SwitchMsgRecvThread extends Thread {
 					n.noResponseTime = 0;
 					sw.neighborMap.put(n.id, n);
 				}
+				//For LOG
+				System.out.println("Switch ID: " + sw.id + "received REGISTER_RESPONSE:");
 				sw.printNeighbors();
+				
 				
 				//Immediately send KEEP_ALIVE to alive neighbors
 				for(Node n : sw.neighborMap.values()) {
 					if(n.alive && !sw.failedIds.contains(n)) {
-						//For LOG:
-						System.out.println("Switch ID: " + sw.id + "Sending KEEP_ALIVE to" + n.id);
 						MsgKeepAlive.send(sw, n);
 					}
 				}
-				
-				
-				
 				break;
 			
 			case "MsgKeepAlive":
 				MsgKeepAlive msg2 = (MsgKeepAlive)obj;
 				Node n = sw.neighborMap.getOrDefault(msg2.id, null);
 				if(n == null) break; //KeepAlive may come before RegisterResponse, the neighborMap is still empty
-				System.out.println("Received KEEP_ALIVE from id:" + msg2.id);
+				//For LOG
+				System.out.println("Received KEEP_ALIVE from ID: " + msg2.id);
 
 				//if node was not alive before, update routing
 				if(!n.alive) {
 					//For LOG
-					//Found new alive node
 					System.out.println("Found New Alive Switch ID:" + msg2.id);
 					
 					n.update(msg2.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
-					MsgTopologyUpdate.send(sw, true);
+					MsgTopologyUpdate.send(sw, true);  //update immediately as the project requires. otherwise we can update in the periodic task
+				} else {
+					//if we allow the changes of neighbor switches' ip and port, we need this update here
+					n.update(msg2.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
+					
 				}
 				sw.aliveNeighborSet.add(n);
 				break;
 				
 			case "MsgRouteUpdate":
+				//For LOG
+				System.out.println("New Routing Table Received");
 				
 				break;
 			default:
