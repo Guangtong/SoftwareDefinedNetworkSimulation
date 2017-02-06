@@ -77,10 +77,7 @@ public class SwitchMsgRecvThread extends Thread {
 				sw.log.println("New Routing Table Received");
 				RouteUpdate msg = (RouteUpdate)obj;
 				int[] table = msg.nextHopToDestination;
-				for(int i = 0; i < table.length; i ++) {
-					sw.log.print(table[i] + "  ");
-				}
-				sw.log.println();		
+				printRoutingTable(table);
 				break;
 			default:
 				break;
@@ -111,6 +108,22 @@ public class SwitchMsgRecvThread extends Thread {
 		return null;
 	}	
 	
+	public void printRoutingTable(int[] table)
+	{
+		sw.log.println("=======Up-to-date Rounting table=======");
+		sw.log.print("Routing Table at Switch:" + sw.id);
+		sw.log.println();
+		sw.log.print("Destination Switch:     ");
+		for(int i = 0; i < table.length; i ++) {
+			sw.log.print((i + 1) + "\t");
+		}
+		sw.log.println();
+		sw.log.print("Next hop:               ");
+		for(int i = 0; i < table.length; i ++) {
+			sw.log.print(table[i] + "\t");
+		}
+		sw.log.println(); 
+	}
 	
 	
 }

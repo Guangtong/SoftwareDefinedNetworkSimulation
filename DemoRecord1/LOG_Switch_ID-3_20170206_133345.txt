@@ -1,0 +1,77 @@
+2017-02-06T13:33:46.049: LOG file created.
+2017-02-06T13:33:46.165: 3 sending REGISTER_REQUEST to controller at localhost/127.0.0.1:30000
+2017-02-06T13:33:46.182: Switch ID: 3received REGISTER_RESPONSE:
+2017-02-06T13:33:46.182: ===== Neighbors of SW ID: 3 ====
+2017-02-06T13:33:46.182: ID	HostName	port	Alive
+2017-02-06T13:33:46.182: 2	127.0.0.1	30002	true
+2017-02-06T13:33:46.182: 4	undefined	-1	false
+2017-02-06T13:33:46.182: 6	undefined	-1	false
+2017-02-06T13:33:51.174: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:33:53.379: Switch-3 Found a New ALIVE Link From Neighbor-4
+2017-02-06T13:33:53.388: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: true
+2017-02-06T13:33:56.172: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:01.172: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:06.173: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:11.172: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:13.096: Switch-3 Found a New ALIVE Link From Neighbor-6
+2017-02-06T13:34:13.096: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: true
+2017-02-06T13:34:13.106: New Routing Table Received
+2017-02-06T13:34:13.106: =======Up-to-date Rounting table=======
+Routing Table at Switch:3
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               6	6	0	6	6	6	
+2017-02-06T13:34:16.173: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:21.173: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:26.174: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:31.174: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:36.175: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:41.176: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:46.174: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:51.177: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:34:56.176: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:01.175: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:06.183: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:11.179: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:16.178: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:21.176: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:26.178: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:31.177: Switch-3 Found a New DEAD Link From Neighbor-2
+2017-02-06T13:35:31.177: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: true
+2017-02-06T13:35:31.184: New Routing Table Received
+2017-02-06T13:35:31.184: =======Up-to-date Rounting table=======
+Routing Table at Switch:3
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               6	6	0	6	6	6	
+2017-02-06T13:35:31.673: New Routing Table Received
+2017-02-06T13:35:31.673: =======Up-to-date Rounting table=======
+Routing Table at Switch:3
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               6	6	0	6	6	6	
+2017-02-06T13:35:33.786: New Routing Table Received
+2017-02-06T13:35:33.786: =======Up-to-date Rounting table=======
+Routing Table at Switch:3
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               6	-1	0	6	6	6	
+2017-02-06T13:35:36.177: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:41.178: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:46.179: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:51.180: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:35:56.180: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:01.180: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:06.180: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:09.751: New Routing Table Received
+2017-02-06T13:36:09.751: =======Up-to-date Rounting table=======
+Routing Table at Switch:3
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               6	6	0	6	6	6	
+2017-02-06T13:36:09.770: Switch-3 Found a New ALIVE Link From Neighbor-2
+2017-02-06T13:36:09.771: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: true
+2017-02-06T13:36:11.181: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:16.182: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:21.184: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:26.183: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:31.184: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:36.185: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:41.188: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:46.185: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:51.184: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false

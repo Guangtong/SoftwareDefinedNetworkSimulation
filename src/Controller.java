@@ -171,7 +171,7 @@ public class Controller {
 			
 	
 	private void printGraph(int[][] graph) {
-		log.println("Adjacency Matrix of Input Graph");
+		log.println("Adjacency Matrix of Switch Link Bandwidth");
 		log.print("BW\t");
 		for(int i = 1; i <= graph.length; i++) {
 			log.print(i+"\t");
@@ -180,7 +180,12 @@ public class Controller {
 		for(int i = 0; i < graph.length; i++) {
 			log.print(i+1+"\t");
 			for(int j = 0; j < graph.length; j++) {
-				this.log.print(graph[i][j] + "\t");
+				if(graph[i][j] == 0) {
+					this.log.print("Inf\t");
+				}else {
+					this.log.print(graph[i][j] + "\t");
+				}
+				
 			}
 			this.log.println();
 		}

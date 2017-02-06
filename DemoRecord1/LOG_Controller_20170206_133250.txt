@@ -1,0 +1,745 @@
+2017-02-06T13:32:50.134: LOG file created.
+2017-02-06T13:32:50.236: Adjacency Matrix of Switch Link Bandwidth
+BW	1	2	3	4	5	6	
+1	Inf	100	Inf	200	Inf	80	
+2	100	Inf	50	Inf	180	Inf	
+3	Inf	50	Inf	50	Inf	150	
+4	200	Inf	50	Inf	100	Inf	
+5	Inf	180	Inf	100	Inf	Inf	
+6	80	Inf	150	Inf	Inf	Inf	
+2017-02-06T13:33:01.674: Received REGISTER_REQUEST From ID: 1
+2017-02-06T13:33:01.684: Controller sending REGISTER_RESPONSE to id:1
+2017-02-06T13:33:06.668: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:11.656: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:15.580: Received REGISTER_REQUEST From ID: 2
+2017-02-06T13:33:15.581: Controller sending REGISTER_RESPONSE to id:2
+2017-02-06T13:33:15.612: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: true
+2017-02-06T13:33:15.612: Waiting for all nodes registering
+2017-02-06T13:33:16.658: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:20.587: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:33:21.657: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:25.586: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:33:26.659: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:30.591: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:33:31.659: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:35.591: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:33:36.658: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:40.590: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:33:41.659: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:45.592: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:33:46.165: Received REGISTER_REQUEST From ID: 3
+2017-02-06T13:33:46.166: Controller sending REGISTER_RESPONSE to id:3
+2017-02-06T13:33:46.194: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: true
+2017-02-06T13:33:46.194: Waiting for all nodes registering
+2017-02-06T13:33:46.661: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:50.591: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:33:51.175: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:33:51.660: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:53.359: Received REGISTER_REQUEST From ID: 4
+2017-02-06T13:33:53.359: Controller sending REGISTER_RESPONSE to id:4
+2017-02-06T13:33:53.380: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: true
+2017-02-06T13:33:53.380: Waiting for all nodes registering
+2017-02-06T13:33:53.388: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: true
+2017-02-06T13:33:53.389: Waiting for all nodes registering
+2017-02-06T13:33:55.592: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:33:56.173: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:33:56.662: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:33:58.374: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:00.592: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:01.173: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:01.661: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:03.362: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:03.767: Received REGISTER_REQUEST From ID: 5
+2017-02-06T13:34:03.768: Controller sending REGISTER_RESPONSE to id:5
+2017-02-06T13:34:03.790: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: true
+2017-02-06T13:34:03.791: Waiting for all nodes registering
+2017-02-06T13:34:03.798: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: true
+2017-02-06T13:34:03.798: Waiting for all nodes registering
+2017-02-06T13:34:05.593: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:06.174: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:06.662: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:08.363: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:08.773: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:10.593: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:11.173: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:11.662: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:13.078: Received REGISTER_REQUEST From ID: 6
+2017-02-06T13:34:13.079: Controller sending REGISTER_RESPONSE to id:6
+2017-02-06T13:34:13.079: All Switches Registered
+2017-02-06T13:34:13.080: The routing table for every node is as below:
+2017-02-06T13:34:13.080: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:34:13.080: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	2	6	4	2	6	
+
+2017-02-06T13:34:13.081: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	0	1	1	5	1	
+
+2017-02-06T13:34:13.081: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:34:13.082: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:34:13.082: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:34:13.083: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:34:13.096: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: true
+2017-02-06T13:34:13.111: Route table already updated
+2017-02-06T13:34:13.113: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: true
+2017-02-06T13:34:13.113: Route table already updated
+2017-02-06T13:34:13.362: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:13.771: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:15.594: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:16.175: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:16.664: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:18.095: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:18.363: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:18.771: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:20.596: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:21.174: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:21.668: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:23.088: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:23.364: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:23.772: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:25.594: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:26.174: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:26.663: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:28.089: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:28.365: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:28.772: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:30.593: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:31.175: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:31.664: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:33.088: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:33.367: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:33.773: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:35.595: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:36.175: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:36.666: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:38.089: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:38.369: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:38.774: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:40.594: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:41.176: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:41.664: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:43.094: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:43.369: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:43.773: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:45.595: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:46.176: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:46.663: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:48.095: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:48.369: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:48.773: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:50.597: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:51.178: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:51.667: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:53.096: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:53.370: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:53.775: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:34:55.597: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:34:56.177: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:34:56.667: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:34:58.094: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:34:58.369: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:34:58.775: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:00.595: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:35:01.177: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:01.665: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:03.095: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:03.370: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:03.774: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:05.598: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:35:06.182: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:06.668: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:08.094: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:08.369: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:08.775: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:11.179: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:11.666: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:13.095: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:13.371: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:13.776: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:16.178: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:16.669: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:18.094: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:18.371: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:18.775: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:21.177: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:21.667: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:23.095: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:23.369: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:23.774: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:26.178: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:26.668: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:28.096: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:28.370: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:28.776: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:31.179: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: true
+2017-02-06T13:35:31.179: Computing Route Update
+2017-02-06T13:35:31.179: The routing table for every node is as below:
+2017-02-06T13:35:31.179: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:35:31.179: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	2	6	4	2	6	
+
+2017-02-06T13:35:31.180: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	0	1	1	5	1	
+
+2017-02-06T13:35:31.180: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:35:31.180: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:35:31.180: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:35:31.181: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:35:31.668: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: true
+2017-02-06T13:35:31.668: Computing Route Update
+2017-02-06T13:35:31.668: The routing table for every node is as below:
+2017-02-06T13:35:31.668: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:35:31.668: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	4	6	4	4	6	
+
+2017-02-06T13:35:31.670: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	5	0	5	5	5	5	
+
+2017-02-06T13:35:31.670: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:35:31.670: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:35:31.670: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:35:31.671: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:35:33.096: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:33.371: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:33.779: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: true
+2017-02-06T13:35:33.779: Computing Route Update
+2017-02-06T13:35:33.779: The routing table for every node is as below:
+2017-02-06T13:35:33.779: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:35:33.779: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	-1	6	4	4	6	
+
+2017-02-06T13:35:33.779: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	-1	0	-1	-1	-1	-1	
+
+2017-02-06T13:35:33.779: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	-1	0	6	6	6	
+
+2017-02-06T13:35:33.782: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	-1	1	0	5	1	
+
+2017-02-06T13:35:33.782: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	-1	4	4	0	4	
+
+2017-02-06T13:35:33.782: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	-1	3	1	1	0	
+
+2017-02-06T13:35:36.178: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:36.668: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:38.096: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:38.374: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:38.775: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:41.178: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:41.668: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:43.096: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:43.375: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:43.779: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:46.179: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:46.669: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:48.099: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:48.374: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:48.777: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:51.180: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:51.671: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:53.096: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:53.373: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:53.778: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:35:56.180: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:35:56.671: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:35:58.097: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:35:58.373: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:35:58.777: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:01.181: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:01.672: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:03.098: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:03.375: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:03.779: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:06.180: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:06.672: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:08.099: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:08.373: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:08.778: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:09.744: Received REGISTER_REQUEST From ID: 2
+2017-02-06T13:36:09.745: Controller sending REGISTER_RESPONSE to id:2
+2017-02-06T13:36:09.745: All Switches Registered
+2017-02-06T13:36:09.745: The routing table for every node is as below:
+2017-02-06T13:36:09.745: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:36:09.746: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	2	6	4	2	6	
+
+2017-02-06T13:36:09.746: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	0	1	1	5	1	
+
+2017-02-06T13:36:09.746: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:36:09.747: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:36:09.747: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:36:09.748: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:36:09.781: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: true
+2017-02-06T13:36:09.781: Route table already updated
+2017-02-06T13:36:09.782: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: true
+2017-02-06T13:36:09.782: Route table already updated
+2017-02-06T13:36:09.795: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: true
+2017-02-06T13:36:09.796: Route table already updated
+2017-02-06T13:36:11.181: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:11.672: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:13.098: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:13.375: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:13.779: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:14.753: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:16.183: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:16.672: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:18.099: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:18.374: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:18.787: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:19.753: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:21.184: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:21.673: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:23.100: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:23.374: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:23.784: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:24.753: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:26.183: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:26.673: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:28.099: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:28.377: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:28.783: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:29.751: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:31.184: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:31.673: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:33.099: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:33.376: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:33.784: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:34.752: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:36.185: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:36.673: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:38.100: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:38.377: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:38.785: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:39.751: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:41.188: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:41.674: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:43.100: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:43.376: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:43.785: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:44.752: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:46.185: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:46.675: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:48.101: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:48.376: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:48.785: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:49.751: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:51.185: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:36:51.676: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:53.100: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:53.376: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:53.786: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:54.752: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:36:56.675: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:36:58.100: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:36:58.377: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:36:58.786: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:36:59.752: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:01.676: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:03.101: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:03.377: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:03.788: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:04.754: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:06.676: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:08.102: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:08.376: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:08.787: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:09.753: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:11.677: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:13.102: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:13.380: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:13.788: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:14.753: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:16.677: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:17.305: Received REGISTER_REQUEST From ID: 3
+2017-02-06T13:37:17.306: Controller sending REGISTER_RESPONSE to id:3
+2017-02-06T13:37:17.306: All Switches Registered
+2017-02-06T13:37:17.306: The routing table for every node is as below:
+2017-02-06T13:37:17.309: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:37:17.309: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	2	6	4	2	6	
+
+2017-02-06T13:37:17.310: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	0	1	1	5	1	
+
+2017-02-06T13:37:17.310: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:37:17.311: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:37:17.311: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:37:17.312: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:37:18.103: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:18.379: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:18.788: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:19.761: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: true
+2017-02-06T13:37:19.761: Computing Route Update
+2017-02-06T13:37:19.762: The routing table for every node is as below:
+2017-02-06T13:37:19.762: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:37:19.762: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	2	6	4	2	6	
+
+2017-02-06T13:37:19.762: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	0	1	1	5	1	
+
+2017-02-06T13:37:19.762: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:37:19.763: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:37:19.764: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:37:19.764: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:37:21.677: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:22.312: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:37:23.102: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:23.378: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:23.787: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:24.758: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:26.678: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:27.310: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:37:28.102: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:28.379: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:28.788: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:29.759: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:31.682: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:32.312: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:37:33.104: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:33.379: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:33.789: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:34.759: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:36.678: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:37.312: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:37:38.103: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:38.379: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:38.789: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:39.761: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:41.681: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:42.314: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: true
+2017-02-06T13:37:42.314: Route table already updated
+2017-02-06T13:37:43.104: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:43.378: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:43.788: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:44.759: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:46.679: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:47.312: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:37:48.105: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:48.380: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:48.790: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:49.760: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:51.679: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:52.316: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:37:53.104: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:53.380: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:53.790: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:54.759: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:37:56.679: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:37:57.312: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:37:58.104: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:37:58.380: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:37:58.790: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:37:59.760: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:01.679: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:02.313: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:03.106: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:03.381: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:03.791: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:04.760: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:06.681: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:07.315: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:08.105: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:08.381: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:08.791: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:09.762: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:11.681: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:12.316: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:13.105: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:13.381: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:13.790: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:14.760: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:16.681: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:17.314: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:18.105: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:18.382: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:18.791: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:19.760: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:21.682: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:22.314: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:23.106: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:23.384: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:23.792: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:24.762: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:26.684: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:27.315: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:28.107: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:28.385: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:28.791: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:29.761: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:31.682: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:32.315: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:33.106: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:33.383: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:33.792: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:34.762: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:36.683: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:37.315: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:38.106: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:38.384: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:38.792: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:39.763: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:41.685: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:42.317: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:43.108: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:43.385: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:43.793: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:44.764: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:46.683: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:47.318: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:48.108: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:48.384: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:48.792: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:49.762: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:51.684: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:52.318: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:38:53.107: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:53.385: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:53.793: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:54.763: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:38:56.685: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:38:58.108: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:38:58.385: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:38:58.794: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:38:59.765: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:01.018: Received REGISTER_REQUEST From ID: 3
+2017-02-06T13:39:01.019: Controller sending REGISTER_RESPONSE to id:3
+2017-02-06T13:39:01.019: All Switches Registered
+2017-02-06T13:39:01.019: The routing table for every node is as below:
+2017-02-06T13:39:01.019: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:39:01.019: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	2	6	4	2	6	
+
+2017-02-06T13:39:01.019: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	0	1	1	5	1	
+
+2017-02-06T13:39:01.020: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:39:01.020: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:39:01.020: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:39:01.020: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:39:01.685: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:03.108: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:03.387: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:03.795: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:04.764: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:06.029: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:06.684: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:08.109: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:08.388: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:08.794: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:09.766: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:11.025: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:11.685: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:13.108: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:13.388: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:13.795: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:14.766: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:16.026: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:16.686: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:18.109: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:18.388: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: true
+2017-02-06T13:39:18.388: Computing Route Update
+2017-02-06T13:39:18.389: The routing table for every node is as below:
+2017-02-06T13:39:18.389: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:39:18.389: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	2	6	4	2	6	
+
+2017-02-06T13:39:18.389: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	0	1	1	5	1	
+
+2017-02-06T13:39:18.390: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:39:18.391: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:39:18.391: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:39:18.392: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:39:18.796: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:19.765: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:21.027: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:21.685: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:23.109: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:23.386: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:23.796: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:24.765: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:26.031: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: true
+2017-02-06T13:39:26.031: Computing Route Update
+2017-02-06T13:39:26.031: The routing table for every node is as below:
+2017-02-06T13:39:26.031: ===Up-to-date Routing Table for all Switches===
+2017-02-06T13:39:26.031: Routing Table at Switch:	1
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	0	2	6	4	2	6	
+
+2017-02-06T13:39:26.032: Routing Table at Switch:	2
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	0	1	1	5	1	
+
+2017-02-06T13:39:26.032: Routing Table at Switch:	3
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	6	6	0	6	6	6	
+
+2017-02-06T13:39:26.034: Routing Table at Switch:	4
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	5	1	0	5	1	
+
+2017-02-06T13:39:26.034: Routing Table at Switch:	5
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	4	2	4	4	0	4	
+
+2017-02-06T13:39:26.035: Routing Table at Switch:	6
+Destination Switch:     	1	2	3	4	5	6	
+Next hop:               	1	1	3	1	1	0	
+
+2017-02-06T13:39:26.685: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:28.110: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:28.386: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:28.795: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:29.766: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:31.027: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:31.687: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:33.111: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:33.387: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:33.796: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:34.767: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:36.027: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:36.686: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:38.110: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:38.387: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:38.796: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:39.768: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:41.027: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:41.686: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:43.111: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:43.387: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:43.796: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:44.768: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:46.027: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:46.686: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:48.110: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:48.390: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:48.797: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:49.769: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false
+2017-02-06T13:39:51.028: Controller Received TOPOLOGY_UPDATE from Switch ID: 3 Update Request: false
+2017-02-06T13:39:51.687: Controller Received TOPOLOGY_UPDATE from Switch ID: 1 Update Request: false
+2017-02-06T13:39:53.112: Controller Received TOPOLOGY_UPDATE from Switch ID: 6 Update Request: false
+2017-02-06T13:39:53.388: Controller Received TOPOLOGY_UPDATE from Switch ID: 4 Update Request: false
+2017-02-06T13:39:53.797: Controller Received TOPOLOGY_UPDATE from Switch ID: 5 Update Request: false
+2017-02-06T13:39:54.777: Controller Received TOPOLOGY_UPDATE from Switch ID: 2 Update Request: false

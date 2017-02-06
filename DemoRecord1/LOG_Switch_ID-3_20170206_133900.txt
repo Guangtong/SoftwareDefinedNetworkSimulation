@@ -1,0 +1,35 @@
+2017-02-06T13:39:00.913: LOG file created.
+2017-02-06T13:39:01.018: 3 sending REGISTER_REQUEST to controller at localhost/127.0.0.1:30000
+2017-02-06T13:39:01.034: Switch ID: 3received REGISTER_RESPONSE:
+2017-02-06T13:39:01.034: ===== Neighbors of SW ID: 3 ====
+2017-02-06T13:39:01.034: ID	HostName	port	Alive
+2017-02-06T13:39:01.034: 2	127.0.0.1	30002	true
+2017-02-06T13:39:01.034: 4	127.0.0.1	30004	true
+2017-02-06T13:39:01.035: 6	127.0.0.1	30006	true
+2017-02-06T13:39:01.040: New Routing Table Received
+2017-02-06T13:39:01.041: =======Up-to-date Rounting table=======
+Routing Table at Switch:3
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               6	6	0	6	6	6	
+2017-02-06T13:39:06.030: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:11.025: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:16.026: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:18.398: New Routing Table Received
+2017-02-06T13:39:18.400: =======Up-to-date Rounting table=======
+Routing Table at Switch:3
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               6	6	0	6	6	6	
+2017-02-06T13:39:21.026: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:26.025: Switch-3 Found a New DEAD Link From Neighbor-2
+2017-02-06T13:39:26.026: Switch-3 Found a New DEAD Link From Neighbor-4
+2017-02-06T13:39:26.030: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: true
+2017-02-06T13:39:26.045: New Routing Table Received
+2017-02-06T13:39:26.046: =======Up-to-date Rounting table=======
+Routing Table at Switch:3
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               6	6	0	6	6	6	
+2017-02-06T13:39:31.026: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:36.027: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:41.027: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:46.027: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:51.027: 3 Sending TOPOLOGY_UPDATE to controller; Update Request: false

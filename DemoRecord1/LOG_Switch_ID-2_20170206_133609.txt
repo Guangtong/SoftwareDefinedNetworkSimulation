@@ -1,0 +1,84 @@
+2017-02-06T13:36:09.618: LOG file created.
+2017-02-06T13:36:09.745: 2 sending REGISTER_REQUEST to controller at localhost/127.0.0.1:30000
+2017-02-06T13:36:09.764: Switch ID: 2received REGISTER_RESPONSE:
+2017-02-06T13:36:09.764: ===== Neighbors of SW ID: 2 ====
+2017-02-06T13:36:09.764: ID	HostName	port	Alive
+2017-02-06T13:36:09.764: 1	127.0.0.1	30001	true
+2017-02-06T13:36:09.764: 3	127.0.0.1	30003	true
+2017-02-06T13:36:09.765: 5	127.0.0.1	30005	true
+2017-02-06T13:36:09.770: New Routing Table Received
+2017-02-06T13:36:09.770: =======Up-to-date Rounting table=======
+Routing Table at Switch:2
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               1	0	1	1	5	1	
+2017-02-06T13:36:14.752: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:19.753: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:24.753: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:29.750: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:34.751: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:39.751: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:44.752: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:49.751: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:54.752: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:36:59.751: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:04.753: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:09.753: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:14.754: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:17.318: New Routing Table Received
+2017-02-06T13:37:17.318: =======Up-to-date Rounting table=======
+Routing Table at Switch:2
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               1	0	1	1	5	1	
+2017-02-06T13:37:19.758: Switch-2 Found a New DEAD Link From Neighbor-3
+2017-02-06T13:37:19.775: New Routing Table Received
+2017-02-06T13:37:19.775: =======Up-to-date Rounting table=======
+Routing Table at Switch:2
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               1	0	1	1	5	1	
+2017-02-06T13:37:19.785: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: true
+2017-02-06T13:37:24.758: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:29.759: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:34.759: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:39.759: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:44.759: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:49.760: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:54.759: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:37:59.760: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:04.760: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:09.763: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:14.760: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:19.760: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:24.762: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:29.762: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:34.761: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:39.764: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:44.764: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:49.763: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:54.763: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:38:59.764: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:01.022: New Routing Table Received
+2017-02-06T13:39:01.022: =======Up-to-date Rounting table=======
+Routing Table at Switch:2
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               1	0	1	1	5	1	
+2017-02-06T13:39:04.764: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:09.764: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:14.766: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:18.395: New Routing Table Received
+2017-02-06T13:39:18.395: =======Up-to-date Rounting table=======
+Routing Table at Switch:2
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               1	0	1	1	5	1	
+2017-02-06T13:39:19.766: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:24.765: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:26.042: New Routing Table Received
+2017-02-06T13:39:26.042: =======Up-to-date Rounting table=======
+Routing Table at Switch:2
+Destination Switch:     1	2	3	4	5	6	
+Next hop:               1	0	1	1	5	1	
+2017-02-06T13:39:29.766: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:34.768: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:39.768: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:44.768: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:49.768: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false
+2017-02-06T13:39:54.778: 2 Sending TOPOLOGY_UPDATE to controller; Update Request: false

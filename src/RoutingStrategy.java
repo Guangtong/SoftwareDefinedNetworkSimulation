@@ -26,12 +26,12 @@ public class RoutingStrategy {
 
 	public int[][] computeRouteTable() {
 		
-		controller.log.println("The alive_graph is:");
-		printSolution(aliveBwGraph);
+//		controller.log.println("The alive_graph is:");
+//		printAliveGraph(aliveBwGraph);
 		for(int src = 0; src < numNodes; src ++) {
 			widestCapacity(src);
 		}
-		controller.log.println("The routing table is:");
+		controller.log.println("The routing table for every node is as below:");
 		printSolution(routingTable);
 		return routingTable;
 	}
@@ -55,7 +55,7 @@ public class RoutingStrategy {
 	    for (int i = 0; i < numNodes; i++) {
 	    	width[i] = 0;
 		    sptSet[i] = false;
-		    pred[i] = -1;//src's pred is no one
+		    pred[i] = -2;//src's pred is no one, detached nodes also have no pred. Have to distinguish
 	    }
 	       
 	    width[src] = Integer.MAX_VALUE;
@@ -72,6 +72,7 @@ public class RoutingStrategy {
 	            }
 	        }
 	    }
+	    pred[src] = -1; // Detached nodes' pred is -2, while src's pred is -1
 	    for(int j = 0; j < numNodes; j ++) {
 	    	routingTable[src][j] = pred[j] + 1;//plus one to be id instead of matrix index
 	    }
@@ -79,9 +80,26 @@ public class RoutingStrategy {
 
 	public void printSolution(int[][] routingtable)//int width[], int pred[], int n
 	{
-		for(int src = 0; src < numNodes; src ++) {
-			for (int j = 0; j < numNodes; j++) {
-		    	controller.log.print(routingtable[src][j] + ", ");
+		controller.log.println("===Up-to-date Routing Table for all Switches===");
+		for(int j = 0; j < routingtable.length; j ++) {
+			controller.log.println("Routing Table at Switch:\t" + (j + 1));
+			controller.log.print("Destination Switch:     \t");
+			for(int i = 0; i < routingtable.length; i ++) {
+				controller.log.print((i + 1) + "\t");
+			}
+			controller.log.println();
+			controller.log.print("Next hop:               \t");
+			for(int des = 0; des < routingtable.length; des ++) {
+				controller.log.print(routingtable[des][j] + "\t");
+			}
+			controller.log.println();
+			controller.log.println();
+		}
+	}
+	public void printAliveGraph(int[][] aliveGraph) {
+		for(int i = 0; i < aliveGraph.length; i ++) {
+			for (int j = 0; j < aliveGraph.length; j++) {
+				controller.log.print(aliveGraph[i][j] + ", ");
 		    }
 			controller.log.println();
 		}     
