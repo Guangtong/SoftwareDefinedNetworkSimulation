@@ -57,14 +57,14 @@ public class SwitchMsgRecvThread extends Thread {
 				if(n == null) break; //KeepAlive may come before RegisterResponse, the neighborMap is still empty
 				
 				//For LOG
-				if(!sw.failedIds.contains(n.id)) {
+				if(sw.isVerbose()) {
 					sw.log.println("Received KEEP_ALIVE from ID: " + msg2.id);
 				}
 
 				//if node was not alive before, update routing
 				if(!n.alive) {
 					//For LOG
-					sw.log.println("Found New Alive Switch ID:" + msg2.id);
+					sw.log.println("Switch-" + sw.id + " Found a New ALIVE Link From Neighbor-" + msg2.id);
 					n.update(msg2.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
 					MsgTopologyUpdate.send(sw, true);  //update immediately as the project requires.
 				}

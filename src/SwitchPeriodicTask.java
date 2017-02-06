@@ -31,8 +31,10 @@ public class SwitchPeriodicTask extends TimerTask {
 				n.incNoResponseTime();
 				if(n.noResponseTime >= timeout) {
 					n.setAlive(false);
+					sw.log.println("Switch-" + sw.id + " Found a New DEAD Link From Neighbor-" + n.id);
 					needUpdate = true;
 				}
+				
 			}
 
 			//send KEEP_ALIVE

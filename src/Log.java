@@ -10,6 +10,7 @@ public class Log {
 	private FileWriter fw = null;
 	private PrintWriter pw = null;
 	
+	
 	protected void finalize() {
 		this.close();
 	}
@@ -31,11 +32,13 @@ public class Log {
 	public void println(String s) {
 		System.out.println(s);
 		pw.println(LocalDateTime.now() +  ": "+ s);
+		pw.flush();
 	}
 
 	public void println() {
 		System.out.println();
 		pw.println();
+		pw.flush();
 	}
 	
 	public void print(String s) {
@@ -50,7 +53,8 @@ public class Log {
 	
 	public void errPrintln(String s) {
 		System.err.println(s);
-		pw.println(LocalDateTime.now() +  ": "+ "ERROR! " + s + '\n');
+		pw.println(LocalDateTime.now() +  ": "+ "ERROR! " + s);
+		pw.flush();
 	}
 	
 	public void close() {
