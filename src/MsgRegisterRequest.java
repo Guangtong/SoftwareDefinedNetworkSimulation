@@ -1,8 +1,5 @@
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
@@ -25,10 +22,10 @@ public class MsgRegisterRequest implements java.io.Serializable {
             sw.socket.send(sendPacket); 
             
             //For LOG
-            System.out.println(sw.id + " sending REGISTER_REQUEST to controller at "+ sendPacket.getSocketAddress());
+            sw.log.println(sw.id + " sending REGISTER_REQUEST to controller at "+ sendPacket.getSocketAddress());
             
         } catch (IOException e) {
-			System.err.println(sw.id + " sending REGISTER_REQUEST to controller failed");
+			sw.log.errPrintln(sw.id + " sending REGISTER_REQUEST to controller failed");
 		}
 		
 	}

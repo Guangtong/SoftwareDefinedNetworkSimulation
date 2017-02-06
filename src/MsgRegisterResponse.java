@@ -1,8 +1,5 @@
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
@@ -20,10 +17,11 @@ public class MsgRegisterResponse implements java.io.Serializable{
 	
 	public static void send(Controller controller, Node target) {
 		MsgRegisterResponse resp = new MsgRegisterResponse();
-        ArrayList<Edge> edges = controller.edgeMap.get(target);
-       
-        for(Edge edge : edges) {
-        	resp.neighbors.add(edge.to);
+        
+        for(int id = 1; id <= controller.numNodes; id ++) {
+        	if(controller.originalBwGraph[target.id - 1][id - 1] != 0) {
+        		resp.neighbors.add(controller.nodeMap.get(id));
+        	}
         }
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
              ObjectOutput out = new ObjectOutputStream(bos)) {
@@ -32,10 +30,10 @@ public class MsgRegisterResponse implements java.io.Serializable{
             DatagramPacket p = new DatagramPacket(buf, buf.length, InetAddress.getByName(target.hostName), target.port);
             controller.socket.send(p); //ip and port are already in receivePacket
             //For LOG
-            System.out.println("Controller sending REGISTER_RESPONSE to id:" + target.id);
+            controller.log.println("Controller sending REGISTER_RESPONSE to id:" + target.id);
             
         } catch (IOException e) {
-			System.err.println("Controller sending REGISTER_RESPONSE to id:" + target.id + "failed");
+			controller.log.errPrintln("Controller sending REGISTER_RESPONSE to id:" + target.id + "failed");
 		}
 	}
 	

@@ -36,13 +36,13 @@ public class SwitchMsgRecvThread extends Thread {
 					sw.neighborMap.put(n.id, n);
 				}
 				//For LOG
-				System.out.println("Switch ID: " + sw.id + "received REGISTER_RESPONSE:");
+				sw.log.println("Switch ID: " + sw.id + "received REGISTER_RESPONSE:");
 				sw.printNeighbors();
 				
 				
 				//Immediately send KEEP_ALIVE to alive neighbors
 				for(Node n : sw.neighborMap.values()) {
-					if(n.alive && !sw.failedIds.contains(n)) {
+					if(n.alive && !sw.failedIds.contains(n.id)) {
 						MsgKeepAlive.send(sw, n);
 					}
 				}
@@ -50,30 +50,37 @@ public class SwitchMsgRecvThread extends Thread {
 			
 			case "MsgKeepAlive":
 				MsgKeepAlive msg2 = (MsgKeepAlive)obj;
+				
+				if(sw.failedIds.contains(msg2.id)) break;   //simulate failed linked
+				
 				Node n = sw.neighborMap.getOrDefault(msg2.id, null);
 				if(n == null) break; //KeepAlive may come before RegisterResponse, the neighborMap is still empty
+				
 				//For LOG
-				System.out.println("Received KEEP_ALIVE from ID: " + msg2.id);
+				if(!sw.failedIds.contains(n.id)) {
+					sw.log.println("Received KEEP_ALIVE from ID: " + msg2.id);
+				}
 
 				//if node was not alive before, update routing
 				if(!n.alive) {
 					//For LOG
-					System.out.println("Found New Alive Switch ID:" + msg2.id);
-					
+					sw.log.println("Found New Alive Switch ID:" + msg2.id);
 					n.update(msg2.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
-					MsgTopologyUpdate.send(sw, true);  //update immediately as the project requires. otherwise we can update in the periodic task
-				} else {
-					//if we allow the changes of neighbor switches' ip and port, we need this update here
-					n.update(msg2.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
-					
+					MsgTopologyUpdate.send(sw, true);  //update immediately as the project requires.
 				}
 				sw.aliveNeighborSet.add(n);
+				
 				break;
 				
-			case "MsgRouteUpdate":
+			case "RouteUpdate":
 				//For LOG
-				System.out.println("New Routing Table Received");
-				
+				sw.log.println("New Routing Table Received");
+				RouteUpdate msg = (RouteUpdate)obj;
+				int[] table = msg.nextHopToDestination;
+				for(int i = 0; i < table.length; i ++) {
+					sw.log.print(table[i] + "  ");
+				}
+				sw.log.println();		
 				break;
 			default:
 				break;
@@ -91,15 +98,15 @@ public class SwitchMsgRecvThread extends Thread {
 		try {
 			sw.socket.receive(recvPacket); //receive() is thread safe
 		} catch (IOException e1) {
-			System.err.println("Switch Receive Error 001");
+			sw.log.errPrintln("Switch Receive Error 001");
 		}
 		try (ByteArrayInputStream bis = new ByteArrayInputStream(recvPacket.getData(), 0, recvPacket.getLength());
 		     ObjectInput in = new ObjectInputStream(bis)) {
 			return in.readObject();
 		} catch (ClassNotFoundException e) {
-			System.err.println("Switch Receive Error 002");
+			sw.log.errPrintln("Switch Receive Error 002");
 		} catch (IOException e1) {
-			System.err.println("Switch Receive Error 003");
+			sw.log.errPrintln("Switch Receive Error 003");
 		}
 		return null;
 	}	

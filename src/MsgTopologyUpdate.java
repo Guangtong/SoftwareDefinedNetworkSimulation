@@ -40,10 +40,10 @@ public class MsgTopologyUpdate implements java.io.Serializable {
             sw.socket.send(p); //ip and port are already in receivePacket
             
             //For LOG
-            System.out.println(sw.id + " Sending TOPOLOGY_UPDATE to controller; Requesting Update: " + needUpdate);
+            sw.log.println(sw.id + " Sending TOPOLOGY_UPDATE to controller; Update Request: " + needUpdate);
             
         } catch (IOException e) {
-			System.err.println(sw.id + " Sending TOPOLOGY_UPDATE to controller failed");
+			sw.log.errPrintln(sw.id + " Sending TOPOLOGY_UPDATE to controller failed");
 		}
 	}
 

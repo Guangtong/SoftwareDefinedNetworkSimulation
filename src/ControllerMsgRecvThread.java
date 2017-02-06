@@ -4,9 +4,7 @@ import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 public class ControllerMsgRecvThread extends Thread {
 	
@@ -35,47 +33,79 @@ public class ControllerMsgRecvThread extends Thread {
 			switch(msgType) {
 			case "MsgTopologyUpdate":
 				MsgTopologyUpdate msg1 = (MsgTopologyUpdate)obj;
-				//For LOG
-				System.out.println("Controller Received TOPOLOGY_UPDATE from Switch ID: " + msg1.id + " Update Request: " + msg1.needUpdate);
+				Node n1 = controller.nodeMap.getOrDefault(msg1.id, null);
 				
-				if(!msg1.needUpdate) 
+				if(n1 == null) {
+					//not required in this project:
+					//when controller restarts but switches still sending TopologyUpdate
+					//should register
 					break;
-				HashSet<Integer> neighborIdSet = new HashSet<Integer>(msg1.neighborIds);
+				}
 				
-				//NOTES:
-				//one case is new alive neighbor is added, this results in a new active edge (not an new alive node, because the node won't send until controller knows it's alive)
-				//the other case is some node becomes not alive, this results in a new inactive edge (not a new inactive node, because the switch does not know whether the neighbor is alive or not)
-				//so we only need to check edgeMap
-				ArrayList<Edge> edges = controller.edgeMap.get(controller.nodeMap.get(msg1.id));
+				//For LOG
+				controller.log.println("Controller Received TOPOLOGY_UPDATE from Switch ID: " + msg1.id + " Update Request: " + msg1.needUpdate);
+			
 				boolean needUpdate = false;
-				for(Edge edge : edges){
-					//For TEST:
-					System.out.println("Edge Info: " + edge.from.id + " to " + edge.to.id + ", Record: " + edge.active + " Feedback: " + neighborIdSet.contains(edge.to.id));
-					
-					
-					
-					if(edge.active && !neighborIdSet.contains(edge.to.id)) {
-						//edge no long active
-						edge.active = false;
-						needUpdate = true;
-					}else if(!edge.active && neighborIdSet.contains(edge.to.id)){
-						//edge becomes active
-						edge.active = true;
+				
+				synchronized (controller) {
+					//1. Remember alive nodes, find node from alive to dead in periodic check
+					controller.aliveNodeArr[msg1.id - 1] = 1;
+					//2. Node from dead to alive,  needUpdate immediately
+					if(!n1.alive) {
+						n1.update(msg1.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
 						needUpdate = true;
 					}
-				}
-				if(needUpdate) {  //really needs update after check
+	
+					//3. Update edges
+					if(msg1.needUpdate) {
+						HashSet<Integer> neighborIdSet = new HashSet<Integer>(msg1.neighborIds);
+						for(int id = 1; id <= controller.numNodes; id ++) {
+							if(controller.aliveBwGraph[msg1.id - 1][id - 1] == 0 && neighborIdSet.contains(id)) {
+								//new active edge
+								needUpdate = true;
+								controller.nodeMap.get(id).setAlive(true);
+								controller.aliveBwGraph[msg1.id - 1][id - 1] = controller.originalBwGraph[msg1.id - 1][id - 1];
+								controller.aliveBwGraph[id - 1][msg1.id - 1] = controller.originalBwGraph[id - 1][msg1.id - 1];
+							}
+							else if(controller.aliveBwGraph[msg1.id - 1][id - 1] != 0 && !neighborIdSet.contains(id)) {
+								//new inactive edge
+								needUpdate = true;
+								controller.aliveBwGraph[msg1.id - 1][id - 1] = 0;
+								controller.aliveBwGraph[id - 1][msg1.id - 1] = 0;
+								//if all this id's edges are failed, set node id to be dead
+								int sum = 0;
+								for(int i : controller.aliveBwGraph[id - 1]) {
+									sum += i;
+								}
+								if(sum == 0) {
+									controller.nodeMap.get(id).setAlive(false);
+								}
+								
+								
+							}
+						}
+					}
+				}	
+				//4. Broadcast new route table
+				if(needUpdate) {  //found graph change after check
 					//for LOG
-					System.out.println("Computing Route Update");
-					//TODO
-					//compute route
-					//send MsgRouteUpdate
-				}else {
-					System.out.println("Actually No Need of Route Update");
+					controller.log.println("Computing Route Update");
+					synchronized(controller) {
+						RoutingStrategy routingStrategy = new RoutingStrategy(controller);
+						int[][] routingtable = routingStrategy.computeRouteTable();
+						RouteUpdateToAll routeupdatetoall = new RouteUpdateToAll(controller, routingtable);
+						routeupdatetoall.sendRouteUpdateToAllNodes();
+					}
+					
+				}else if(msg1.needUpdate){
+					//msg request update but found no graph change
+					if(controller.regSet.size() == controller.numNodes){
+						controller.log.println("Route table already updated");
+					}else{
+						controller.log.println("Waiting for all nodes registering");
+					}
 				}
-				
-				
-				
+
 				break;
 			case "MsgRegisterRequest":
 				MsgRegisterRequest msg2 = (MsgRegisterRequest)obj;
@@ -86,47 +116,38 @@ public class ControllerMsgRecvThread extends Thread {
 				int swPort = recvPacket.getPort();
 				
 				//For LOG
-				System.out.println("Received REGISTER_REQUEST From ID: " + swID);
+				controller.log.println("Received REGISTER_REQUEST From ID: " + swID);
 				
 				//2. Check the switch availability
 				Node n = controller.nodeMap.getOrDefault(swID, null);
 				if(n == null ) {
 					continue;   
 					//when id is not in initial graph, do not respond to this switch
-					
 				}
 				
-				//we allow reregister now: sw may be shortly down and restart, no sw or controller know the restart, but the port may be changed			
-//				if(controller.regSet.contains(n)){
-//					// when id is repeatedly registered, with another port for example, do not respond to this switch
-//					
-//					
-//				}
-				
-				//3.Update switch Node info, and the edges related
-				n.update(swID, swIP.getHostName(), swPort, true);
-				//set edges from n to active
-				for(Edge edge : controller.edgeMap.get(n)) {
-					if(!edge.to.alive) 
-						continue;
-					
-					edge.active = true;
+				//3.Update switch Node and edge info, and the edges related
+				synchronized (controller) {
+					n.update(swID, swIP.getHostName(), swPort, true);
+					controller.aliveNodeArr[swID - 1] = 1;
+					//set edges from n to active
 					//set edges to n to active
-					for(Edge edge2 : controller.edgeMap.get(edge.to)) {
-						if(edge2.to == n) {
-							edge2.active = true;
-							//For TEST:
-							System.out.println("Edges between " + edge2.from.id + " and " + edge2.to.id + " are set active");
+					for(int id = 1; id <= controller.numNodes; id ++) {
+						if(controller.originalBwGraph[swID - 1][id - 1] != 0) {
+							if(controller.nodeMap.get(id).alive) {
+								controller.aliveBwGraph[swID - 1][id - 1] = controller.originalBwGraph[swID - 1][id - 1];
+								controller.aliveBwGraph[id - 1][swID - 1] = controller.originalBwGraph[id - 1][swID - 1];
+							}
 						}
 					}
 				}
+				
 				
 				//4. send REGISTER_RESPONSE with all the neighbors of the switch
 				MsgRegisterResponse.send(controller, n);
 				
 				//5. trigger route compute when all switches regsitered
 				controller.regSet.add(n);
-				if(controller.regSet.size() == controller.nodeMap.size()) {
+				if(controller.regSet.size() == controller.numNodes) {
 					controller.allRegisteredSignal.release();
 				}
 				
@@ -147,15 +168,15 @@ public class ControllerMsgRecvThread extends Thread {
 		try {
 			controller.socket.receive(recvPacket); //receive() is thread safe
 		} catch (IOException e1) {
-			System.err.println("Controller Receive Error 001");
+			controller.log.errPrintln("Controller Receive Error 001");
 		}
 		try (ByteArrayInputStream bis = new ByteArrayInputStream(recvPacket.getData(), 0, recvPacket.getLength());
 		     ObjectInput in = new ObjectInputStream(bis)) {
 			return in.readObject();
 		} catch (ClassNotFoundException e) {
-			System.err.println("Controller Receive Error 002");
+			controller.log.errPrintln("Controller Receive Error 002");
 		} catch (IOException e1) {
-			System.err.println("Controller Receive Error 003");
+			controller.log.errPrintln("Controller Receive Error 003");
 		}
 		return null;
 	}	

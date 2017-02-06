@@ -36,7 +36,9 @@ public class SwitchPeriodicTask extends TimerTask {
 			}
 
 			//send KEEP_ALIVE
-			MsgKeepAlive.send(sw, n);
+			if(!sw.failedIds.contains(n.id)) {
+				MsgKeepAlive.send(sw, n);
+			}
 		}
 		
 		//send TopologyUpdate

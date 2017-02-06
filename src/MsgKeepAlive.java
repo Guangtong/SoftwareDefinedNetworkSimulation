@@ -1,8 +1,5 @@
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
@@ -26,10 +23,10 @@ public class MsgKeepAlive implements java.io.Serializable {
             DatagramPacket sendPacket = new DatagramPacket(buf, buf.length, InetAddress.getByName(target.hostName), target.port);
             sw.socket.send(sendPacket); 
             //For LOG:
-            System.out.println(sw.id + " sending KEEP_ALIVE to " + target.id);
+            sw.log.println(sw.id + " sending KEEP_ALIVE to " + target.id);
             
         } catch (IOException e) {
-        	System.err.println(sw.id + " sending KEEP_ALIVE to " + target.id + " failed");
+        	sw.log.errPrintln(sw.id + " sending KEEP_ALIVE to " + target.id + " failed");
 		}
 
 	}
