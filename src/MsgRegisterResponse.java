@@ -30,12 +30,22 @@ public class MsgRegisterResponse implements java.io.Serializable{
             DatagramPacket p = new DatagramPacket(buf, buf.length, InetAddress.getByName(target.hostName), target.port);
             controller.socket.send(p); //ip and port are already in receivePacket
             //For LOG
-            controller.log.println("Controller sending REGISTER_RESPONSE to id:" + target.id);
+            resp.printRegisterResponse(controller, target.id);
             
         } catch (IOException e) {
-			controller.log.errPrintln("Controller sending REGISTER_RESPONSE to id:" + target.id + "failed");
+			controller.log.errPrintln("Controller Sending REGISTER_RESPONSE To Switch-" + target.id + "failed");
 		}
 	}
 	
+	public void printRegisterResponse(Controller controller, int swID) {
+		//For LOG
+		controller.log.println("Controller Sending REGISTER_RESPONSE To Switch-" + swID);
+        controller.log.println("===== Neighbors of Switch-" + swID + " ====");
+		controller.log.println("ID\tHostName\tPort\tAlive");
+        for(Node n : this.neighbors) {
+			controller.log.println(n.id + "\t" + n.hostName + "\t" + n.port +"\t" + n.alive);
+		}
+	}
+
 
 }

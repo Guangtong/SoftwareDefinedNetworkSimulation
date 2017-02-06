@@ -24,11 +24,11 @@ public class MsgKeepAlive implements java.io.Serializable {
             sw.socket.send(sendPacket); 
             //For LOG:
             if(sw.isVerbose()){
-            	sw.log.println(sw.id + " sending KEEP_ALIVE to " + target.id);
+            	sw.log.println("Switch-"+sw.id + " sending KEEP_ALIVE to Switch-" + target.id);
             }
             
         } catch (IOException e) {
-        	sw.log.errPrintln(sw.id + " sending KEEP_ALIVE to " + target.id + " failed");
+        	sw.log.errPrintln("Switch-"+sw.id + " sending KEEP_ALIVE to Switch-" + target.id + " failed");
 		}
 
 	}

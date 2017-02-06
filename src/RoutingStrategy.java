@@ -82,7 +82,7 @@ public class RoutingStrategy {
 	{
 		controller.log.println("===Up-to-date Routing Table for all Switches===");
 		for(int j = 0; j < routingtable.length; j ++) {
-			controller.log.println("Routing Table at Switch:\t" + (j + 1));
+			controller.log.println("Routing Table for Switch-" + (j + 1));
 			controller.log.print("Destination Switch:     \t");
 			for(int i = 0; i < routingtable.length; i ++) {
 				controller.log.print((i + 1) + "\t");

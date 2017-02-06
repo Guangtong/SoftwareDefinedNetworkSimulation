@@ -151,7 +151,7 @@ public class Switch {
 
 	public void printNeighbors() {
 		//For LOG
-		log.println("===== Neighbors of SW ID: " + id + " ====");
+		log.println("===== Neighbors of Switch-" + id + " ====");
 		log.println("ID\tHostName\tport\tAlive");
 		
 		for(Node n : this.neighborMap.values()) {

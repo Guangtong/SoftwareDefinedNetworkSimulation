@@ -180,7 +180,7 @@ public class Controller {
 		for(int i = 0; i < graph.length; i++) {
 			log.print(i+1+"\t");
 			for(int j = 0; j < graph.length; j++) {
-				if(graph[i][j] == 0) {
+				if(i == j) {
 					this.log.print("Inf\t");
 				}else {
 					this.log.print(graph[i][j] + "\t");

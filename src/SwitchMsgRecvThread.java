@@ -36,7 +36,7 @@ public class SwitchMsgRecvThread extends Thread {
 					sw.neighborMap.put(n.id, n);
 				}
 				//For LOG
-				sw.log.println("Switch ID: " + sw.id + "received REGISTER_RESPONSE:");
+				sw.log.println("Switch-" + sw.id + " received REGISTER_RESPONSE:");
 				sw.printNeighbors();
 				
 				
@@ -64,7 +64,7 @@ public class SwitchMsgRecvThread extends Thread {
 				//if node was not alive before, update routing
 				if(!n.alive) {
 					//For LOG
-					sw.log.println("Switch-" + sw.id + " Found a New ALIVE Link From Neighbor-" + msg2.id);
+					sw.log.println("Switch-" + sw.id + " Found a New ALIVE Link From Neighbor-" + msg2.id + " at "+ recvPacket.getAddress().getHostName() + ":" + recvPacket.getPort());
 					n.update(msg2.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
 					MsgTopologyUpdate.send(sw, true);  //update immediately as the project requires.
 				}
@@ -111,7 +111,7 @@ public class SwitchMsgRecvThread extends Thread {
 	public void printRoutingTable(int[] table)
 	{
 		sw.log.println("=======Up-to-date Rounting table=======");
-		sw.log.print("Routing Table at Switch:" + sw.id);
+		sw.log.print("Routing Table for Switch-" + sw.id);
 		sw.log.println();
 		sw.log.print("Destination Switch:     ");
 		for(int i = 0; i < table.length; i ++) {

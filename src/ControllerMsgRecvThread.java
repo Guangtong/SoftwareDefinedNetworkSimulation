@@ -43,8 +43,10 @@ public class ControllerMsgRecvThread extends Thread {
 				}
 				
 				//For LOG
-				controller.log.println("Controller Received TOPOLOGY_UPDATE from Switch ID: " + msg1.id + " Update Request: " + msg1.needUpdate);
-			
+				if(msg1.needUpdate) {
+					controller.log.println("Controller Received TOPOLOGY_UPDATE from Switch ID: " + msg1.id);
+				}
+				
 				boolean needUpdate = false;
 				
 				synchronized (controller) {
@@ -54,6 +56,8 @@ public class ControllerMsgRecvThread extends Thread {
 					if(!n1.alive) {
 						n1.update(msg1.id, recvPacket.getAddress().getHostName(), recvPacket.getPort(), true);
 						needUpdate = true;
+						//For LOG
+						controller.log.println("Found Switch-" + n1.id + "Became Alive!");
 					}
 	
 					//3. Update edges
@@ -66,20 +70,22 @@ public class ControllerMsgRecvThread extends Thread {
 								controller.nodeMap.get(id).setAlive(true);
 								controller.aliveBwGraph[msg1.id - 1][id - 1] = controller.originalBwGraph[msg1.id - 1][id - 1];
 								controller.aliveBwGraph[id - 1][msg1.id - 1] = controller.originalBwGraph[id - 1][msg1.id - 1];
+								controller.log.println("Detected a New Active Link Between " + "Switch-" + msg1.id + " and " + "Switch-" + id);
 							}
 							else if(controller.aliveBwGraph[msg1.id - 1][id - 1] != 0 && !neighborIdSet.contains(id)) {
 								//new inactive edge
 								needUpdate = true;
 								controller.aliveBwGraph[msg1.id - 1][id - 1] = 0;
 								controller.aliveBwGraph[id - 1][msg1.id - 1] = 0;
+								controller.log.println("Detected a New Inactive Link Between " + "Switch-" + msg1.id + " and " + "Switch-" + id);
 								//if all this id's edges are failed, set node id to be dead
-								int sum = 0;
-								for(int i : controller.aliveBwGraph[id - 1]) {
-									sum += i;
-								}
-								if(sum == 0) {
-									controller.nodeMap.get(id).setAlive(false);
-								}
+//								int sum = 0;
+//								for(int i : controller.aliveBwGraph[id - 1]) {
+//									sum += i;
+//								}
+//								if(sum == 0) {
+//									controller.nodeMap.get(id).setAlive(false);
+//								}
 								
 								
 							}
@@ -89,7 +95,7 @@ public class ControllerMsgRecvThread extends Thread {
 				//4. Broadcast new route table
 				if(needUpdate) {  //found graph change after check
 					//for LOG
-					controller.log.println("Computing Route Update");
+					controller.log.println("Computing New Route Table");
 					synchronized(controller) {
 						RoutingStrategy routingStrategy = new RoutingStrategy(controller);
 						int[][] routingtable = routingStrategy.computeRouteTable();
@@ -116,7 +122,7 @@ public class ControllerMsgRecvThread extends Thread {
 				int swPort = recvPacket.getPort();
 				
 				//For LOG
-				controller.log.println("Received REGISTER_REQUEST From ID: " + swID);
+				controller.log.println("Received REGISTER_REQUEST From Switch-" + swID);
 				
 				//2. Check the switch availability
 				Node n = controller.nodeMap.getOrDefault(swID, null);

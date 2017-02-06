@@ -14,7 +14,7 @@ public class ControllerPeriodicTask extends TimerTask{
 			Node node = controller.nodeMap.get(id);
 			if(node.alive && controller.aliveNodeArr[node.id - 1] == 0) {
 				//For LOG
-				controller.log.println("Switch ID: " + node.id + "became dead!");
+				controller.log.println("Found Switch-" + node.id + "Became Dead!");
 				
 				//mark all the edges from and to this node as dead, id - 1 row and id - 1 column all zeros
 				synchronized(controller) {
